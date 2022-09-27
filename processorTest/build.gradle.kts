@@ -45,6 +45,7 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+  namespace = "tw.ktrssreader.processor.test"
 }
 
 ksp {

@@ -10,6 +10,7 @@ object RssReader {
         put(RssType.Standard, StandardRssStrategy())
         put(RssType.ITunes, ITunesRssStrategy())
         put(RssType.GooglePlay, GooglePlayRssStrategy())
+        put(RssType.Youtube, YoutubeRssStrategy())
         put(RssType.AutoMix, AutoMixStrategy())
         put(RssType.Custom, CustomStrategy())
         put(RssType.CustomWithRawData, CustomWithRawDataStrategy())

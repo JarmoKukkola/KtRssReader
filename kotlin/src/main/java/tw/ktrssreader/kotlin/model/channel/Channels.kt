@@ -145,6 +145,36 @@ data class GoogleChannelData(
     override val email: String?,
 ) : GoogleChannel
 
+interface YoutubeChannel : RssStandardChannel {
+    val author: String?
+    override val items: List<YoutubeItem>?
+}
+
+data class YoutubeChannelData(
+    override val title: String?,
+    override val description: String?,
+    override val image: Image?,
+    override val language: String?,
+    override val categories: List<Category>?,
+    override val copyright: String?,
+    override val link: String?,
+    override val managingEditor: String?,
+    override val webMaster: String?,
+    override val pubDate: String?,
+    override val lastBuildDate: String?,
+    override val generator: String?,
+    override val docs: String?,
+    override val cloud: Cloud?,
+    override val ttl: Int?,
+    override val rating: String?,
+    override val textInput: TextInput?,
+    override val skipHours: List<Int>?,
+    override val skipDays: List<String>?,
+    override val items: List<YoutubeItem>?,
+    override val author: String?,
+
+) : YoutubeChannel
+
 interface AutoMixChannel : ITunesChannel, GoogleChannel {
     override val simpleTitle: String?
     override val explicit: Boolean?

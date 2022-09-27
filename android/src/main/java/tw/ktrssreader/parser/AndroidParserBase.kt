@@ -70,6 +70,8 @@ abstract class AndroidParserBase<out T : RssStandardChannel> : tw.ktrssreader.ko
 
     abstract val logTag: String
 
+    open val rootTag = CHANNEL
+
     protected inline fun <T> parseChannel(xml: String, action: XmlPullParser.() -> T): T {
         val parser = getXmlParser(xml)
 
@@ -77,7 +79,7 @@ abstract class AndroidParserBase<out T : RssStandardChannel> : tw.ktrssreader.ko
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.eventType != XmlPullParser.START_TAG) continue
 
-            if (parser.name == CHANNEL) {
+            if (parser.name == rootTag) {
                 result = action(parser)
                 break
             } else {
@@ -160,7 +162,7 @@ abstract class AndroidParserBase<out T : RssStandardChannel> : tw.ktrssreader.ko
 
     @Throws(IOException::class, XmlPullParserException::class)
     private fun XmlPullParser.readRssStandardChannel(): RssStandardChannelData {
-        require(XmlPullParser.START_TAG, null, CHANNEL)
+        require(XmlPullParser.START_TAG, null, rootTag)
 
         var title: String? = null
         var description: String? = null
@@ -210,7 +212,7 @@ abstract class AndroidParserBase<out T : RssStandardChannel> : tw.ktrssreader.ko
                 else -> skip()
             }
         }
-        require(XmlPullParser.END_TAG, null, CHANNEL)
+        require(XmlPullParser.END_TAG, null, rootTag)
         return RssStandardChannelData(
             title = title,
             description = description,

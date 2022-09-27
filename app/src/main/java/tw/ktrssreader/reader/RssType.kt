@@ -4,6 +4,7 @@ enum class RssType {
     Standard,
     ITunes,
     GooglePlay,
+    Youtube,
     AutoMix,
     Custom,
     CustomWithRawData,

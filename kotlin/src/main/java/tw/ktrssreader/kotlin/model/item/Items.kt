@@ -102,6 +102,24 @@ data class GoogleItemData(
     override val block: Boolean?,
 ) : GoogleItem
 
+interface YoutubeItem : RssStandardItem {
+    val published:String?
+}
+
+data class YoutubeItemData(
+    override val title: String?,
+    override val enclosure: Enclosure?,
+    override val guid: Guid?,
+    override val pubDate: String?,
+    override val description: String?,
+    override val link: String?,
+    override val author: String?,
+    override val categories: List<Category>?,
+    override val comments: String?,
+    override val source: Source?,
+    override val published: String?
+) : YoutubeItem
+
 interface AutoMixItem : ITunesItem, GoogleItem {
     override val simpleTitle: String?
     override val duration: String?

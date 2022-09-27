@@ -49,6 +49,7 @@ object KtRssProvider {
             ifRssStandard = { AndroidRssStandardParser() },
             ifITunes = { AndroidITunesParser() },
             ifGoogle = { AndroidGoogleParser() },
+            ifYoutube = { AndroidYoutubeParser() },
             ifAutoMix = { AndroidAutoMixParser() }
         )
     }

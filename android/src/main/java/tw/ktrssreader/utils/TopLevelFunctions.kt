@@ -22,6 +22,7 @@ import tw.ktrssreader.kotlin.model.channel.AutoMixChannel
 import tw.ktrssreader.kotlin.model.channel.GoogleChannel
 import tw.ktrssreader.kotlin.model.channel.ITunesChannel
 import tw.ktrssreader.kotlin.model.channel.RssStandardChannel
+import tw.ktrssreader.kotlin.model.channel.YoutubeChannel
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.ObjectInputStream
@@ -67,6 +68,7 @@ inline fun <reified T, R> convertChannelTo(
     ifITunes: () -> Any,
     ifGoogle: () -> Any,
     ifAutoMix: () -> Any,
+    ifYoutube: () -> Any,
 ): R? {
     val clazz = T::class.java
     // Do NOT change this order
@@ -74,6 +76,7 @@ inline fun <reified T, R> convertChannelTo(
         AutoMixChannel::class.java.isAssignableFrom(clazz) -> ifAutoMix()
         ITunesChannel::class.java.isAssignableFrom(clazz) -> ifITunes()
         GoogleChannel::class.java.isAssignableFrom(clazz) -> ifGoogle()
+        YoutubeChannel::class.java.isAssignableFrom(clazz) -> ifYoutube()
         RssStandardChannel::class.java.isAssignableFrom(clazz) -> ifRssStandard()
         else -> null
     } as? R

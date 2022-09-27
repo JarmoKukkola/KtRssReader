@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -20,7 +22,7 @@ import kotlin.concurrent.thread
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        private const val DEFAULT_RSS_URL = "https://feeds.fireside.fm/wzd/rss"
+        private const val DEFAULT_RSS_URL = "https://www.youtube.com/feeds/videos.xml?channel_id=UC0L1suV8pVgO4pCAIBNGx5w"
         private const val DEFAULT_CHARSET = "UTF-8"
         private val RSS_URL_LIST = listOf(
             "https://feeds.fireside.fm/wzd/rss",
@@ -42,6 +44,7 @@ class MainActivity : AppCompatActivity() {
             "https://anchor.fm/s/12746230/podcast/rss",
             "https://rss.art19.com/wecrashed",
             "https://consciouscreators.libsyn.com/rss",
+            "https://www.youtube.com/feeds/videos.xml?channel_id=UC0L1suV8pVgO4pCAIBNGx5w"
         )
     }
 
@@ -69,6 +72,11 @@ class MainActivity : AppCompatActivity() {
 
         spinner.adapter =
             ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, RssType.values())
+
+        GlobalScope.launch(Dispatchers.Main) {
+            delay(100)
+            spinner.setSelection(3)
+        }
 
         etRss.setText(DEFAULT_RSS_URL)
         etCharset.setText(DEFAULT_CHARSET)

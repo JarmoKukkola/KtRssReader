@@ -21,6 +21,7 @@ object ParserConst {
     const val GOOGLE_PLAY = "googleplay"
 
     const val CHANNEL = "channel"
+    const val FEED = "feed"
     const val TITLE = "title"
     const val DESCRIPTION = "description"
     const val IMAGE = "image"
@@ -41,6 +42,7 @@ object ParserConst {
     const val SKIP_HOURS = "skipHours"
     const val SKIP_DAYS = "skipDays"
     const val ITEM = "item"
+    const val ENTRY = "entry"
     const val URL = "url"
     const val DOMAIN = "domain"
     const val PORT = "port"
@@ -56,6 +58,7 @@ object ParserConst {
     const val LENGTH = "length"
     const val TYPE = "type"
     const val EXPLICIT = "explicit"
+    const val PUBLISHED = "published"
     const val OWNER = "owner"
     const val BLOCK = "block"
     const val PERMALINK = "isPermaLink"

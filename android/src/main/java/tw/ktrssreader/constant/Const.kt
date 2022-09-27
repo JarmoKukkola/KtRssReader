@@ -21,6 +21,7 @@ import tw.ktrssreader.kotlin.model.channel.AutoMixChannel
 import tw.ktrssreader.kotlin.model.channel.GoogleChannel
 import tw.ktrssreader.kotlin.model.channel.ITunesChannel
 import tw.ktrssreader.kotlin.model.channel.RssStandardChannel
+import tw.ktrssreader.kotlin.model.channel.YoutubeChannel
 import tw.ktrssreader.utils.convertChannelTo
 
 object Const {
@@ -30,10 +31,11 @@ object Const {
     const val GOOGLE = 3
     const val AUTO_MIX = 4
     const val CUSTOM = 5
+    const val YOUTUBE = 6
 
     @Target(AnnotationTarget.TYPE)
     @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
-    @IntDef(RSS_STANDARD, ITUNES, GOOGLE, AUTO_MIX, CUSTOM)
+    @IntDef(RSS_STANDARD, ITUNES, GOOGLE, YOUTUBE, AUTO_MIX, CUSTOM)
     annotation class ChannelType {
 
         companion object {
@@ -42,6 +44,7 @@ object Const {
                 return when (channel) {
                     is ITunesChannel -> ITUNES
                     is GoogleChannel -> GOOGLE
+                    is YoutubeChannel-> YOUTUBE
                     is AutoMixChannel -> AUTO_MIX
                     is RssStandardChannel -> RSS_STANDARD
                     else -> CUSTOM
@@ -53,6 +56,7 @@ object Const {
                     ifRssStandard = { RSS_STANDARD },
                     ifITunes = { ITUNES },
                     ifGoogle = { GOOGLE },
+                    ifYoutube = { YOUTUBE },
                     ifAutoMix = { AUTO_MIX },
                 ) ?: CUSTOM
             }
