@@ -148,7 +148,7 @@ class MainActivity : AppCompatActivity() {
                     progressBar.visibility = View.VISIBLE
                 }.onEach {
                     progressBar.visibility = View.INVISIBLE
-                }.catch { e ->
+                }.catch { e->
                     e.printStackTrace()
                     textView.text = e.toString()
                     progressBar.visibility = View.INVISIBLE

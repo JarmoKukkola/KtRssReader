@@ -12,9 +12,6 @@ object RssReader {
         put(RssType.GooglePlay, GooglePlayRssStrategy())
         put(RssType.Youtube, YoutubeRssStrategy())
         put(RssType.AutoMix, AutoMixStrategy())
-        put(RssType.Custom, CustomStrategy())
-        put(RssType.CustomWithRawData, CustomWithRawDataStrategy())
-        put(RssType.CustomWithOrder, CustomWithOrderStrategy())
     }
 
     private val strategy: (rssType: RssType) -> RssStrategy = {

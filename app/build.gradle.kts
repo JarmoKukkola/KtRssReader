@@ -33,7 +33,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+//            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
   namespace = "tw.ktrssreader"
@@ -42,6 +42,7 @@ android {
 dependencies {
     implementation(project(":android"))
     implementation(project(":annotation"))
+    implementation(project(":rssUtils"))
     ksp(project(":processor"))
     implementation(libs.kotlinStdlib)
     implementation(libs.coreKtx)
